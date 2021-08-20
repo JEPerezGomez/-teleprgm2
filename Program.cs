@@ -77,7 +77,7 @@ namespace Calculadoradedivisas
                 oDisplay.origen = oPesocolombiano.origen;
                 oDisplay.MuestraTotales();
             }
-            if(oDisplay.DivisaEscogida == 3){
+            if(oDisplay.origen == 3){
                 dolar oDolar;
                 oDolar = new dolar (equiBSdol);
                 oDisplay.origen = oDolar.origen;
@@ -89,6 +89,12 @@ namespace Calculadoradedivisas
         public float _equiBSdol;
         public float _equiBsper;
         public int _origen;
+        public float _cantidad;
+
+        public float cantidad{
+            get{return _cantidad;}
+            set{_cantidad = value;}
+        }
 
         public float equiBscol {
             get {return _equiBscol;}
@@ -121,12 +127,20 @@ namespace Calculadoradedivisas
         {
             case "1":
             this.origen = 1;
+            Console.WriteLine("Ingrese la cantidad de Soles peruanos que desea convertir a bolivares:");
+            l = float.Parse(Console.ReadLine());
+            cantidad = float.Parse(Console.ReadLine());
+            Console.WriteLine(equiBsper);
             break;
             case "2":
             this.origen = 2;
+            cantidad = float.Parse(Console.ReadLine());
+            Console.WriteLine(equiBscol);
             break;
             case"3":
             this.origen = 3;
+            cantidad = float.Parse(Console.ReadLine());
+            Console.WriteLine(equiBSdol);
             break;
 
         }
